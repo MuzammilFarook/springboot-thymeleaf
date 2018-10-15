@@ -1,5 +1,5 @@
 package com.hellokoding.springboot;
-
+import java.io.IOException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class HelloController {
     @RequestMapping("/")
-    public String hello(Model model) throws RuntimeException, IOException{
+    public String hello(Model model) throws  IOException{
        	    String shutdownCommand;
 		    String operatingSystem = System.getProperty("os.name");
 
