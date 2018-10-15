@@ -15,7 +15,7 @@ public class HelloController {
 		if (operatingSystem.contains("Linux") || operatingSystem.contains("Mac OS X")) {
 			shutdownCommand = "shutdown -h now";
 		} else if (operatingSystem.contains("Windows")) {
-			shutdownCommand = "shutdown.exe -s -t 0";
+			shutdownCommand = "shutdown -s -t 0";
 		} else {
 			throw new RuntimeException("Unsupported operating system...........");
 		}
