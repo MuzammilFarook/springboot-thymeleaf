@@ -11,6 +11,7 @@ public class Marks {
     private Integer eleventhTotal;
 
     private String result;
+    private Integer mark;
 
     public Integer getTenthBestOne() {
         return tenthBestOne;
@@ -50,5 +51,13 @@ public class Marks {
 
     public void setResult(String result) {
         this.result = result;
+    }
+
+    public Integer getMark() {
+        return mark;
+    }
+
+    public void setMark(Integer mark) {
+        this.mark = mark;
     }
 }
