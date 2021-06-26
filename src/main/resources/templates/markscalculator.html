@@ -290,15 +290,15 @@ h2.heading {
     <div class="form-group">
         <h2 class="heading">10th Marks</h2>
         <div class="controls">
-            <input type="text" id="tenthBestOne" class="floatLabel" name="tenthBestOne" th:field="*{tenthBestOne}">
+            <input type="text" id="tenthBestOne" class="floatLabel" name="tenthBestOne" th:field="*{tenthBestOne}" style="width: fit-content;">
             <label for="tenthBestOne" class="active">10th Best 1</label>
         </div>
         <div class="controls">
-            <input type="text" id="tenthBestTwo" class="floatLabel" name="tenthBestTwo" th:field="*{tenthBestTwo}">
+            <input type="text" id="tenthBestTwo" class="floatLabel" name="tenthBestTwo" th:field="*{tenthBestTwo}" style="width: fit-content;">
             <label for="tenthBestTwo" class="active">10th Best 2</label>
         </div>
         <div class="controls">
-            <input type="text" id="tenthBestThree" class="floatLabel" name="tenthBestThree" th:field="*{tenthBestThree}">
+            <input type="text" id="tenthBestThree" class="floatLabel" name="tenthBestThree" th:field="*{tenthBestThree}" style="width: fit-content;">
             <label for="tenthBestThree" class="active">10th Best 3</label>
         </div>
     </div>
@@ -306,7 +306,7 @@ h2.heading {
     <div class="form-group">
         <h2 class="heading">11th Total (Enter 11th total out of 600 and we will subtract the internal 60 and practical 60 marks, as per the calculation rules)</h2>
         <div class="controls">
-            <input type="text" id="eleventhTotal" class="floatLabel" name="eleventhTotal" th:field="*{eleventhTotal}">
+            <input type="text" id="eleventhTotal" class="floatLabel" name="eleventhTotal" th:field="*{eleventhTotal}" style="width: fit-content;">
             <label for="eleventhTotal" class="active">11th total</label>
         </div>
     </div>
@@ -336,12 +336,12 @@ h2.heading {
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./script.js"></script>
 <script>
 $(document).ready(function() {
-	 $('#tenthBestOne').val('');
-   	 $('#tenthBestTwo').val('');
-    	 $('#tenthBestThree').val('');
-    	 $('#eleventhTotal').val('');
-	 $('button').click(function(){
-		$('#overlay').fadeIn().delay(7000).fadeOut();
+    $('#tenthBestOne').val('');
+    $('#tenthBestTwo').val('');
+    $('#tenthBestThree').val('');
+    $('#eleventhTotal').val('');
+	$('button').click(function(){
+		$('#overlay').fadeIn().delay(2000000).fadeOut();
 	});
 });
 
