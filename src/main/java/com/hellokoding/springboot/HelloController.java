@@ -34,8 +34,9 @@ public class HelloController {
 		Double _10thCummulative = (((marks.getTenthBestOne() + marks.getTenthBestTwo() + marks.getTenthBestThree()) / 300d) * 100 ) / 2;
 		Double _11thCummulative = ((((marks.getEleventhTotal() - 120)/480d) * 100) / 100d ) * 20;
 
-		Double result = _10thCummulative + _11thCummulative + TWELTH_CUMMULATIVE;
-		marks.setResult(String.format("%.2f", result));
+		double result = _10thCummulative + _11thCummulative + TWELTH_CUMMULATIVE;
+		marks.setResult(String.valueOf((int) result));
+		marks.setMark(Integer.parseInt(marks.getResult()) * 6);
 		return "markscalculator";
 	}
 }
