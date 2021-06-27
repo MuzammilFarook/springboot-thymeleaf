@@ -1,7 +1,10 @@
 package com.hellokoding.springboot;
 import java.io.IOException;
+import java.util.Date;
 
 import com.hellokoding.springboot.model.Marks;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HelloController {
+	private static final Logger logger = LoggerFactory.getLogger(HelloController.class);
 
 	public static final Double TWELTH_CUMMULATIVE = 30d;
 
@@ -23,6 +27,7 @@ public class HelloController {
 
 	@RequestMapping(value = "/twelthMarkCalculator", method = RequestMethod.GET)
 	public ModelAndView usersonboarding(ModelAndView modelAndView, Marks marks) {
+		logger.info("Using calc: "+ new Date().getTime());
 		modelAndView.addObject("marks", marks);
 		modelAndView.setViewName("markscalculator");
 		return modelAndView;
