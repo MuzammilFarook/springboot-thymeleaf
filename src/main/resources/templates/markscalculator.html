@@ -286,6 +286,11 @@ h2.heading {
         <br/>
         Loading...
     </div>
+    <div class="form-group" th:if="${marks.result}">
+        <div class="controls">
+            <p style="background-color: yellow;font-size: 35px;">Your percentage is <span th:text="${marks.result}"></span> % and score is <span th:text="${marks.mark}"></span>.</p>
+        </div>
+    </div>
     <!--  General -->
     <div class="form-group">
         <h2 class="heading">10th Marks</h2>
@@ -338,11 +343,7 @@ h2.heading {
         </div>
     </div>
 
-    <div class="form-group" th:if="${marks.result}">
-        <div class="controls">
-            <p style="background-color: yellow;font-size: 35px;">Your percentage is <span th:text="${marks.result}"></span> % and score is <span th:text="${marks.mark}"></span>.</p>
-        </div>
-    </div>
+
 
 
     <!--  More -->
@@ -367,6 +368,10 @@ $(document).ready(function() {
     $('#eleventhOther').val('');
 
 	$('button').click(function(){
+	    if($('#tenthBestOne').val() == '' ||   $('#tenthBestTwo').val() == '' ||   $('#tenthBestThree').val() == '' ||   $('#eleventhLanguage').val() == '' ||   $('#eleventhEnglish').val() == '' ||   $('#eleventhPhysics').val() == ''||   $('#eleventhChemistry').val() == '' ||   $('#eleventhMaths').val() == '' ||   $('#eleventhOther').val() == ''){
+	        alert('Please complete all required fields');
+	        return false;
+	    }
 		$('#overlay').fadeIn().delay(2000000).fadeOut();
 	});
 });
