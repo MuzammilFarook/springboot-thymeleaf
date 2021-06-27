@@ -8,7 +8,13 @@ public class Marks {
     private Integer tenthBestThree;
 
     //11th Marks
-    private Integer eleventhTotal;
+    private Integer eleventhLanguage;
+    private Integer eleventhEnglish;
+    private Integer eleventhPhysics;
+    private Integer eleventhChemistry;
+    private Integer eleventhMaths;
+    private Integer eleventhOther;
+
 
     private String result;
     private Integer mark;
@@ -37,12 +43,52 @@ public class Marks {
         this.tenthBestThree = tenthBestThree;
     }
 
-    public Integer getEleventhTotal() {
-        return eleventhTotal;
+    public Integer getEleventhLanguage() {
+        return eleventhLanguage;
     }
 
-    public void setEleventhTotal(Integer eleventhTotal) {
-        this.eleventhTotal = eleventhTotal;
+    public void setEleventhLanguage(Integer eleventhLanguage) {
+        this.eleventhLanguage = eleventhLanguage;
+    }
+
+    public Integer getEleventhEnglish() {
+        return eleventhEnglish;
+    }
+
+    public void setEleventhEnglish(Integer eleventhEnglish) {
+        this.eleventhEnglish = eleventhEnglish;
+    }
+
+    public Integer getEleventhPhysics() {
+        return eleventhPhysics;
+    }
+
+    public void setEleventhPhysics(Integer eleventhPhysics) {
+        this.eleventhPhysics = eleventhPhysics;
+    }
+
+    public Integer getEleventhChemistry() {
+        return eleventhChemistry;
+    }
+
+    public void setEleventhChemistry(Integer eleventhChemistry) {
+        this.eleventhChemistry = eleventhChemistry;
+    }
+
+    public Integer getEleventhMaths() {
+        return eleventhMaths;
+    }
+
+    public void setEleventhMaths(Integer eleventhMaths) {
+        this.eleventhMaths = eleventhMaths;
+    }
+
+    public Integer getEleventhOther() {
+        return eleventhOther;
+    }
+
+    public void setEleventhOther(Integer eleventhOther) {
+        this.eleventhOther = eleventhOther;
     }
 
     public String getResult() {

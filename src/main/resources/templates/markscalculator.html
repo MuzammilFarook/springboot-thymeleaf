@@ -304,10 +304,30 @@ h2.heading {
     </div>
     <!--  Details -->
     <div class="form-group">
-        <h2 class="heading">11th Total (Enter 11th total out of 600 and we will subtract the internal 60 and practical 60 marks, as per the calculation rules)</h2>
+        <h2 class="heading">11th Total (Enter 11th theory marks only)</h2>
         <div class="controls">
-            <input type="text" id="eleventhTotal" class="floatLabel" name="eleventhTotal" th:field="*{eleventhTotal}" style="width: fit-content;">
-            <label for="eleventhTotal" class="active">11th total</label>
+            <input type="text" id="eleventhLanguage" class="floatLabel" name="tenthBestThree" th:field="*{eleventhLanguage}" style="width: fit-content;">
+            <label for="eleventhLanguage" class="active">Language</label>
+        </div>
+        <div class="controls">
+            <input type="text" id="eleventhEnglish" class="floatLabel" name="tenthBestThree" th:field="*{eleventhEnglish}" style="width: fit-content;">
+            <label for="eleventhEnglish" class="active">English</label>
+        </div>
+        <div class="controls">
+            <input type="text" id="eleventhPhysics" class="floatLabel" name="tenthBestThree" th:field="*{eleventhPhysics}" style="width: fit-content;">
+            <label for="eleventhPhysics" class="active">Physics</label>
+        </div>
+        <div class="controls">
+            <input type="text" id="eleventhChemistry" class="floatLabel" name="tenthBestThree" th:field="*{eleventhChemistry}" style="width: fit-content;">
+            <label for="eleventhChemistry" class="active">Chemistry</label>
+        </div>
+        <div class="controls">
+            <input type="text" id="eleventhMaths" class="floatLabel" name="tenthBestThree" th:field="*{eleventhMaths}" style="width: fit-content;">
+            <label for="eleventhMaths" class="active">Maths</label>
+        </div>
+        <div class="controls">
+            <input type="text" id="eleventhOther" class="floatLabel" name="tenthBestThree" th:field="*{eleventhOther}" style="width: fit-content;">
+            <label for="eleventhOther" class="active">Computer science/Biology</label>
         </div>
     </div>
     <div class="form-group">
@@ -339,7 +359,13 @@ $(document).ready(function() {
     $('#tenthBestOne').val('');
     $('#tenthBestTwo').val('');
     $('#tenthBestThree').val('');
-    $('#eleventhTotal').val('');
+    $('#eleventhLanguage').val('');
+    $('#eleventhEnglish').val('');
+    $('#eleventhPhysics').val('');
+    $('#eleventhChemistry').val('');
+    $('#eleventhMaths').val('');
+    $('#eleventhOther').val('');
+
 	$('button').click(function(){
 		$('#overlay').fadeIn().delay(2000000).fadeOut();
 	});
