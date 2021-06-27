@@ -27,7 +27,7 @@ public class HelloController {
 
 	@RequestMapping(value = "/twelthMarkCalculator", method = RequestMethod.GET)
 	public ModelAndView usersonboarding(ModelAndView modelAndView, Marks marks) {
-		logger.info("Using calc: "+ new Date().getTime());
+		logger.info("Using calc: "+ System.currentTimeMillis());
 		modelAndView.addObject("marks", marks);
 		modelAndView.setViewName("markscalculator");
 		return modelAndView;
