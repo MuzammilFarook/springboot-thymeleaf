@@ -38,12 +38,12 @@ public class HelloController {
 	public String twelthMarkCalculator(ModelAndView modelAndView, Marks marks) {
 
 		Double _10thCummulative = (((marks.getTenthBestOne() + marks.getTenthBestTwo() + marks.getTenthBestThree()) / 300d) * 100 ) / 2;
-		Double _11Language = (marks.getEleventhLanguage()/100d) * 20;
-		Double _11English = (marks.getEleventhEnglish()/100d) * 20;
-		Double _11Physics = (marks.getEleventhPhysics()/100d) * 20;
-		Double _11Chemistry = (marks.getEleventhChemistry()/100d) * 20;
-		Double _11Maths = (marks.getEleventhMaths()/100d) * 20;
-		Double _11Other = (marks.getEleventhOther()/100d) * 20;
+		Double _11Language = (marks.getEleventhLanguage()/90d) * 20;
+		Double _11English = (marks.getEleventhEnglish()/90d) * 20;
+		Double _11Physics = (marks.getEleventhPhysics()/70d) * 20;
+		Double _11Chemistry = (marks.getEleventhChemistry()/70d) * 20;
+		Double _11Maths = (marks.getEleventhMaths()/90d) * 20;
+		Double _11Other = (marks.getEleventhOther()/70d) * 20;
 
 		Double _11thCummulative = _11Language + _11English + _11Physics + _11Chemistry + _11Maths + _11Other;
 
