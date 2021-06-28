@@ -47,8 +47,9 @@ public class HelloController {
 		Double _11thCummulative = ((_11Language + _11English + _11Physics + _11Chemistry + _11Maths + _11Other )/100d * 20);
 
 		double result = _10thCummulative + _11thCummulative + TWELTH_CUMMULATIVE;
-		marks.setResult(String.valueOf((int) result));
-		marks.setMark(Integer.parseInt(marks.getResult()) * 6);
+		marks.setMark((int) (result * 6));
+		String resultPercent = String.format("%.2f", result);
+		marks.setResult(resultPercent);
 		return "markscalculator";
 	}
 }
