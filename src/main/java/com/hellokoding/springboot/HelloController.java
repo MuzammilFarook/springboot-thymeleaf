@@ -23,6 +23,12 @@ public class HelloController {
 	@RequestMapping("/")
 	public String hello(Model model) throws IOException {
 		
+		return "markscalculator";
+	}
+
+	@RequestMapping("/about")
+	public String about(Model model) throws IOException {
+
 		return "hello";
 	}
 
