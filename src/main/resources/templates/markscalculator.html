@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-<head><script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/soulrider911/pen/ugnyl?limit=all&page=5&q=form" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./script.js"></script>
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
@@ -84,7 +85,7 @@ a {
 }
 
 header, form {
-  padding: 4em 10%;
+  padding: 2em 5%;
 }
 
 header {
@@ -279,35 +280,40 @@ h2.heading {
 
 </style></head><body>
 <header>
-    <h1><i class="fa fa-cloud"></i> 12th Marks Calculator <span><a href="/">By Muzammil Farook</a></span> <i class="fa fa-cloud"></i></h1>
-    <h2>Follow me <i class="fa fa-twitter"></i> <a href="https://twitter.com/Muzammil_Farook" target="_blank">  @Muzammil_Farook</a></h2>
+    <h1><i class="fa fa-cloud"></i> 12th Marks Calculator <span><a href="/" style="color: aliceblue;">By Muzammil Farook</a></span> <i class="fa fa-cloud"></i></h1>
+    <h2>Developed by <i class="fa fa-twitter"></i> <a style="color: aliceblue;" href="https://twitter.com/Muzammil_Farook" target="_blank">  @Muzammil_Farook</a></h2>
+    <br>
+    <h2>Please be informed that this is not the offical marks.This is just an utility to help students and teachers.</h2>
 </header>
-<form autocomplete="off" action="#" th:action="@{/twelthMarkCalculator}" th:object="${marks}" method="post" class="m-t" role="form" data-toggle="validator">
-    <div id="overlay" style="display:none;">
-        <div class="spinner"></div>
-        <br/>
-        Loading...
-    </div>
+<form>
     <!-- Add the counter instance somewhere to your template... -->
     <div class="counterapi" style="min-height:44px;margin-left: 1200px;display:none" ></div>
-    <div class="form-group" th:if="${marks.result}">
-        <div class="controls">
-            <p style="background-color: yellow;font-size: 35px;">Your percentage is <span th:text="${marks.result}"></span> % and score is <span th:text="${marks.mark}"></span>.</p>
+    <div class="form-group" id="results" style="display:none;">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Results</h3>
+            </div>
+            <div class="panel-body">
+                <p class="pull-left">Your percentage is <span id="percentage" style="background-color: yellow;"></span>%</p><br/><br/>
+                <p class="pull-left">Total score is <span id="total" style="background-color: yellow;"></span></p><br/><br/>
+                <p class="pull-left">Your engineering cut off is <span id="cutoff" style="background-color: yellow;"></span></p><br/><br/>
+                <a href="/twelthMarkCalculator">Calculate again</a>
+            </div>
         </div>
     </div>
     <!--  General -->
     <div class="form-group">
         <h2 class="heading">10th Marks</h2>
         <div class="controls">
-            <input type="text" id="tenthBestOne" class="floatLabel" name="tenthBestOne" th:field="*{tenthBestOne}" style="width: fit-content;">
+            <input type="text" id="tenthBestOne" class="floatLabel" name="tenthBestOne" style="width: fit-content;">
             <label for="tenthBestOne" class="active">10th Best 1</label>
         </div>
         <div class="controls">
-            <input type="text" id="tenthBestTwo" class="floatLabel" name="tenthBestTwo" th:field="*{tenthBestTwo}" style="width: fit-content;">
+            <input type="text" id="tenthBestTwo" class="floatLabel" name="tenthBestTwo" style="width: fit-content;">
             <label for="tenthBestTwo" class="active">10th Best 2</label>
         </div>
         <div class="controls">
-            <input type="text" id="tenthBestThree" class="floatLabel" name="tenthBestThree" th:field="*{tenthBestThree}" style="width: fit-content;">
+            <input type="text" id="tenthBestThree" class="floatLabel" name="tenthBestThree" style="width: fit-content;">
             <label for="tenthBestThree" class="active">10th Best 3</label>
         </div>
     </div>
@@ -315,27 +321,27 @@ h2.heading {
     <div class="form-group">
         <h2 class="heading">11th Total (Enter 11th theory marks only)</h2>
         <div class="controls">
-            <input type="text" id="eleventhLanguage" class="floatLabel" name="tenthBestThree" th:field="*{eleventhLanguage}" style="width: fit-content;">
+            <input type="text" id="eleventhLanguage" class="floatLabel" name="tenthBestThree" style="width: fit-content;">
             <label for="eleventhLanguage" class="active">Language (Out 0f 90)</label>
         </div>
         <div class="controls">
-            <input type="text" id="eleventhEnglish" class="floatLabel" name="tenthBestThree" th:field="*{eleventhEnglish}" style="width: fit-content;">
+            <input type="text" id="eleventhEnglish" class="floatLabel" name="tenthBestThree" style="width: fit-content;">
             <label for="eleventhEnglish" class="active">English (Out 0f 90)</label>
         </div>
         <div class="controls">
-            <input type="text" id="eleventhPhysics" class="floatLabel" name="tenthBestThree" th:field="*{eleventhPhysics}" style="width: fit-content;">
+            <input type="text" id="eleventhPhysics" class="floatLabel" name="tenthBestThree" style="width: fit-content;">
             <label for="eleventhPhysics" class="active">Physics (Out 0f 70)</label>
         </div>
         <div class="controls">
-            <input type="text" id="eleventhChemistry" class="floatLabel" name="tenthBestThree" th:field="*{eleventhChemistry}" style="width: fit-content;">
+            <input type="text" id="eleventhChemistry" class="floatLabel" name="tenthBestThree" style="width: fit-content;">
             <label for="eleventhChemistry" class="active">Chemistry (Out 0f 70)</label>
         </div>
         <div class="controls">
-            <input type="text" id="eleventhMaths" class="floatLabel" name="tenthBestThree" th:field="*{eleventhMaths}" style="width: fit-content;">
+            <input type="text" id="eleventhMaths" class="floatLabel" name="tenthBestThree" style="width: fit-content;">
             <label for="eleventhMaths" class="active">Maths (Out 0f 90)</label>
         </div>
         <div class="controls">
-            <input type="text" id="eleventhOther" class="floatLabel" name="tenthBestThree" th:field="*{eleventhOther}" style="width: fit-content;">
+            <input type="text" id="eleventhOther" class="floatLabel" name="tenthBestThree" style="width: fit-content;">
             <label for="eleventhOther" class="active">Computer science/Biology (Out 0f 70)</label>
         </div>
     </div>
@@ -347,13 +353,10 @@ h2.heading {
         </div>
     </div>
 
-
-
-
     <!--  More -->
     <div class="form-group">
         <div class="controls">
-            <button>Submit</button>
+            <button type="button" id="submitForm">Submit</button>
         </div>
     </div>
 
@@ -362,29 +365,60 @@ h2.heading {
 <!--    </div>-->
 
 </form>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./script.js"></script>
 <script>
 $(document).ready(function() {
-$.get( "https://api.countapi.xyz/hit/muzamm.herokuapp.com/visits", function( data ) {
-});
-    $('#tenthBestOne').val('');
-    $('#tenthBestTwo').val('');
-    $('#tenthBestThree').val('');
-    $('#eleventhLanguage').val('');
-    $('#eleventhEnglish').val('');
-    $('#eleventhPhysics').val('');
-    $('#eleventhChemistry').val('');
-    $('#eleventhMaths').val('');
-    $('#eleventhOther').val('');
+$.get( "https://api.countapi.xyz/hit/muzamm.herokuapp.com/visits", function( data ) {});
 
-	$('button').click(function(){
+ $('#submitForm').click(function(){
 	    if($('#tenthBestOne').val() == '' ||   $('#tenthBestTwo').val() == '' ||   $('#tenthBestThree').val() == '' ||   $('#eleventhLanguage').val() == '' ||   $('#eleventhEnglish').val() == '' ||   $('#eleventhPhysics').val() == ''||   $('#eleventhChemistry').val() == '' ||   $('#eleventhMaths').val() == '' ||   $('#eleventhOther').val() == ''){
 	        alert('Please complete all required fields');
 	        return false;
+	    }else{
+	        calc();
 	    }
-		$('#overlay').fadeIn().delay(2000000).fadeOut();
 	});
 });
+
+function calc() {
+    // 10th marks
+  	var tenthBestOne = parseInt($('#tenthBestOne').val());
+    var tenthBestTwo = parseInt($('#tenthBestTwo').val());
+    var tenthBestThree = parseInt($('#tenthBestThree').val());
+
+    var eleventhLanguage = parseInt($('#eleventhLanguage').val());
+    var eleventhEnglish = parseInt($('#eleventhEnglish').val());
+    var eleventhMaths = parseInt($('#eleventhMaths').val());
+    var eleventhPhysics = parseInt($('#eleventhPhysics').val());
+    var eleventhChemistry = parseInt($('#eleventhChemistry').val());
+    var eleventhOther = parseInt($('#eleventhOther').val());
+
+
+    var sslc = tenthBestOne + tenthBestTwo + tenthBestThree;
+    sslc = sslc / 3;
+    sslc = sslc / 2 ;
+
+
+    var language = ((eleventhLanguage / 90) * 20) + sslc + 30;
+    var english = ((eleventhEnglish / 90) * 20) + sslc + 30;
+    var maths = ((eleventhMaths / 90) * 20) + sslc + 30;
+    var physics = ((eleventhPhysics / 70) * 20) + sslc + 30;
+    var chemistry = ((eleventhChemistry / 70) * 20) + sslc + 30;
+    var other = ((eleventhOther / 70) * 20) + sslc + 30;
+
+    var total = language + english + maths + physics + chemistry + other;
+    var cutoff = maths + (physics/2) + (chemistry/2);
+    total = total.toFixed(2);
+    cutoff = cutoff.toFixed(2);
+    var percentage = total/6;
+    percentage = percentage.toFixed(2);
+    $('#results').show();
+    document.getElementById("total").innerHTML =  total;
+    document.getElementById("cutoff").innerHTML = cutoff;
+    document.getElementById("percentage").innerHTML =  percentage;
+
+    window.scrollTo({top: 130, behavior: 'smooth'});
+
+}
 
 </script>
 </body></html>
