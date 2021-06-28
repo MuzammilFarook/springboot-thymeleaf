@@ -1,6 +1,4 @@
 package com.hellokoding.springboot;
-import java.io.IOException;
-import java.util.Date;
 
 import com.hellokoding.springboot.model.Marks;
 import org.slf4j.Logger;
@@ -10,6 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.io.IOException;
+import java.math.BigDecimal;
 
 @Controller
 public class HelloController {
@@ -44,11 +45,11 @@ public class HelloController {
 		Double _11Maths = (marks.getEleventhMaths()/100d) * 20;
 		Double _11Other = (marks.getEleventhOther()/100d) * 20;
 
-		Double _11thCummulative = ((_11Language + _11English + _11Physics + _11Chemistry + _11Maths + _11Other )/100d * 20);
+		Double _11thCummulative = _11Language + _11English + _11Physics + _11Chemistry + _11Maths + _11Other;
 
-		double result = _10thCummulative + _11thCummulative + TWELTH_CUMMULATIVE;
-		marks.setMark((int) (result * 6));
-		String resultPercent = String.format("%.2f", result);
+		double v = ((_10thCummulative + TWELTH_CUMMULATIVE) * 6) + _11thCummulative;
+		marks.setMark(new BigDecimal(String.valueOf(v)).setScale(2, BigDecimal.ROUND_HALF_UP).intValue());
+		String resultPercent = String.format("%.2f", v/6d);
 		marks.setResult(resultPercent);
 		return "markscalculator";
 	}
