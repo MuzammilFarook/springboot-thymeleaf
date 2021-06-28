@@ -3,20 +3,29 @@ package com.hellokoding.springboot;
 import com.hellokoding.springboot.model.Marks;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.math.BigDecimal;
+import java.io.InputStream;
+import java.net.URLConnection;
 
 @Controller
 public class HelloController {
 	private static final Logger logger = LoggerFactory.getLogger(HelloController.class);
 
 	public static final Double TWELTH_CUMMULATIVE = 30d;
+	@Autowired
+	private ResourceLoader resourceLoader;
+
 
 	@RequestMapping("/")
 	public String hello(Model model) throws IOException {
@@ -57,5 +66,15 @@ public class HelloController {
 		String resultPercent = String.format("%.2f", mark/6d);
 		marks.setResult(resultPercent);
 		return "markscalculator";
+	}
+
+	@RequestMapping(value = { "/download-marksDocument" }, method = RequestMethod.GET)
+	public void downloadDocument(HttpServletResponse response, Model model) throws IOException {
+		Resource resource = resourceLoader.getResource("classpath:static/book.xlsx");
+		String mimeType = URLConnection.guessContentTypeFromName("static/book.xlsx");
+		response.setContentType(mimeType);
+		response.setHeader("Content-Disposition", "attachment; filename=\"" + "static/book.xlsx" + "\"");
+		InputStream document = resource.getInputStream();
+		FileCopyUtils.copy(document, response.getOutputStream());
 	}
 }
