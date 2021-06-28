@@ -367,9 +367,10 @@ h2.heading {
 </form>
 <script>
 $(document).ready(function() {
-$.get( "https://api.countapi.xyz/hit/muzamm.herokuapp.com/visits", function( data ) {});
 
  $('#submitForm').click(function(){
+ $.get( "https://api.countapi.xyz/hit/muzamm.herokuapp.com/visits", function( data ) {});
+
 	    if($('#tenthBestOne').val() == '' ||   $('#tenthBestTwo').val() == '' ||   $('#tenthBestThree').val() == '' ||   $('#eleventhLanguage').val() == '' ||   $('#eleventhEnglish').val() == '' ||   $('#eleventhPhysics').val() == ''||   $('#eleventhChemistry').val() == '' ||   $('#eleventhMaths').val() == '' ||   $('#eleventhOther').val() == ''){
 	        alert('Please complete all required fields');
 	        return false;
