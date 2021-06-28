@@ -281,6 +281,7 @@ h2.heading {
 <header>
     <h1><i class="fa fa-cloud"></i> 12th Marks Calculator <span>By Muzammil Farook</span> <i class="fa fa-cloud"></i></h1>
     <h3>Follow me <i class="fa fa-twitter"></i> <a href="https://twitter.com/Muzammil_Farook" target="_blank">  @Muzammil_Farook</a></h3>
+    <p>For any issue call - <strong>+91 8903758225</strong></p>
 </header>
 <form autocomplete="off" action="#" th:action="@{/twelthMarkCalculator}" th:object="${marks}" method="post" class="m-t" role="form" data-toggle="validator">
     <div id="overlay" style="display:none;">
@@ -299,15 +300,15 @@ h2.heading {
     <div class="form-group">
         <h2 class="heading">10th Marks</h2>
         <div class="controls">
-            <input type="text" id="tenthBestOne" class="floatLabel" name="tenthBestOne" th:field="*{tenthBestOne}" style="width: fit-content;">
+            <input type="text" id="tenthBestOne" class="floatLabel" name="tenthBestOne" th:field="*{tenthBestOne}" style="width: fit-content;" disabled>
             <label for="tenthBestOne" class="active">10th Best 1</label>
         </div>
         <div class="controls">
-            <input type="text" id="tenthBestTwo" class="floatLabel" name="tenthBestTwo" th:field="*{tenthBestTwo}" style="width: fit-content;">
+            <input type="text" id="tenthBestTwo" class="floatLabel" name="tenthBestTwo" th:field="*{tenthBestTwo}" style="width: fit-content;" disabled>
             <label for="tenthBestTwo" class="active">10th Best 2</label>
         </div>
         <div class="controls">
-            <input type="text" id="tenthBestThree" class="floatLabel" name="tenthBestThree" th:field="*{tenthBestThree}" style="width: fit-content;">
+            <input type="text" id="tenthBestThree" class="floatLabel" name="tenthBestThree" th:field="*{tenthBestThree}" style="width: fit-content;" disabled>
             <label for="tenthBestThree" class="active">10th Best 3</label>
         </div>
     </div>
