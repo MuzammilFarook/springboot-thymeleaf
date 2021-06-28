@@ -45,11 +45,16 @@ public class HelloController {
 		Double _11Maths = (marks.getEleventhMaths()/90d) * 20;
 		Double _11Other = (marks.getEleventhOther()/70d) * 20;
 
-		Double _11thCummulative = _11Language + _11English + _11Physics + _11Chemistry + _11Maths + _11Other;
+		int language = (int) Math.rint(_10thCummulative + TWELTH_CUMMULATIVE + _11Language);
+		int english = (int) Math.rint(_10thCummulative + TWELTH_CUMMULATIVE + _11English);
+		int physics = (int) Math.rint(_10thCummulative + TWELTH_CUMMULATIVE + _11Physics);
+		int chemistry = (int) Math.rint(_10thCummulative + TWELTH_CUMMULATIVE + _11Chemistry);
+		int maths = (int) Math.rint(_10thCummulative + TWELTH_CUMMULATIVE + _11Maths);
+		int other = (int) Math.rint(_10thCummulative + TWELTH_CUMMULATIVE + _11Other);
 
-		double v = ((_10thCummulative + TWELTH_CUMMULATIVE) * 6) + _11thCummulative;
-		marks.setMark(new BigDecimal(String.valueOf(v)).setScale(2, BigDecimal.ROUND_HALF_UP).intValue());
-		String resultPercent = String.format("%.2f", v/6d);
+		int mark = language + english + physics + chemistry + maths + other;
+		marks.setMark(mark);
+		String resultPercent = String.format("%.2f", mark/6d);
 		marks.setResult(resultPercent);
 		return "markscalculator";
 	}
