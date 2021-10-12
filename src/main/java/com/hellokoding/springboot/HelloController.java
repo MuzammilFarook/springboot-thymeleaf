@@ -23,7 +23,7 @@ public class HelloController {
 	@RequestMapping("/")
 	public String hello(Model model) throws IOException {
 		
-		return "markscalculator";
+		return "hello";
 	}
 
 	@RequestMapping("/about")
@@ -34,10 +34,10 @@ public class HelloController {
 
 	//twelthmarkcalculator
 
-	@RequestMapping(value = "/twelthMarkCalculator", method = RequestMethod.GET)
-	public String twelthMarkCalculator() {
-		return "markscalculator";
-	}
+// 	@RequestMapping(value = "/twelthMarkCalculator", method = RequestMethod.GET)
+// 	public String twelthMarkCalculator() {
+// 		return "markscalculator";
+// 	}
 
 //	@RequestMapping(value = "/twelthMarkCalculator", method = RequestMethod.GET)
 //	public ModelAndView usersonboarding(ModelAndView modelAndView, Marks marks) {
